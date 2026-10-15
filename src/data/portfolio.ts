@@ -12,7 +12,11 @@ import {
   Code2,
   User,
   FolderGit2,
-  Mail
+  Mail,
+  CheckCircle2,
+  Database,
+  Layers,
+  Sparkles
 } from 'lucide-react';
 
 export const personalInfo = {
@@ -21,16 +25,45 @@ export const personalInfo = {
   email: 'Bahredeen@gmail.com',
   phone: '+251 942211142 / +251 933852875',
   location: 'Hawassa, Ethiopia',
-  about: 'MSc Project Planning & Management graduate with extensive experience in factory operational planning, technical supervision, quality control, SAP ERP system preparation, and peanut manufacturing plant setup.',
+  about: 'MSc Project Planning & Management graduate with extensive experience in factory operational planning, technical supervision, quality control, SAP ERP system preparation, and peanut manufacturing plant startup.',
 };
 
 export const contactInfo = personalInfo;
 
 export const navLinks = [
   { name: 'Experience', href: '#experience', icon: Briefcase },
+  { name: 'Projects', href: '#projects', icon: FolderGit2 },
   { name: 'Education', href: '#education', icon: GraduationCap },
   { name: 'Skills', href: '#skills', icon: User },
   { name: 'Contact', href: '#contact', icon: Mail },
+];
+
+export const metrics = [
+  {
+    label: 'MSc CGPA',
+    value: '3.95',
+    description: 'Project Planning & Mgmt',
+    icon: GraduationCap,
+  },
+  {
+    label: 'Industry Experience',
+    value: '8+',
+    suffix: ' Yrs',
+    description: 'Operations & Quality Leadership',
+    icon: Briefcase,
+  },
+  {
+    label: 'Enterprise Systems',
+    value: 'SAP ERP',
+    description: 'Integration & Process Mapping',
+    icon: Database,
+  },
+  {
+    label: 'Languages',
+    value: '5',
+    description: 'English, Amharic, Oromo, Arabic, Siltigna',
+    icon: Languages,
+  },
 ];
 
 export const experiences = [
@@ -81,6 +114,27 @@ export const experiences = [
   },
 ];
 
+export const projects = [
+  {
+    title: 'SAP ERP System Preparation & Implementation',
+    organization: 'Tabor Ceramics Products S.C.',
+    category: 'Enterprise Resource Planning',
+    description:
+      'Engaged in process mapping, master data structuring, and workflow alignment for company-wide SAP ERP integration.',
+    technologies: ['SAP ERP Preparation', 'Process Mapping', 'Operations Monitoring', 'Workflow Optimization'],
+    icon: Database,
+  },
+  {
+    title: 'Peanut Food Manufacturing Plant Commissioning',
+    organization: 'Nutricare Manufacturing PLC',
+    category: 'Factory Startup & Operations',
+    description:
+      'Participated in machinery installation, trial production runs, and establishing standard operating procedures for peanut processing lines.',
+    technologies: ['Factory Commissioning', 'Plant Setup', 'Machinery Calibration', 'Quality Assurance'],
+    icon: Factory,
+  },
+];
+
 export const education = [
   {
     degree: 'MSc in Project Planning and Management',
@@ -122,6 +176,39 @@ export const certifications = [
     issuer: 'Udacity',
     date: 'Completed',
     icon: Code2,
+  },
+];
+
+export const skills = [
+  {
+    name: 'Operation Planning & Monitoring',
+    category: 'Operations',
+    level: 95,
+  },
+  {
+    name: 'SAP ERP System Preparation',
+    category: 'Operations',
+    level: 90,
+  },
+  {
+    name: 'Factory Startup & Commissioning',
+    category: 'Operations',
+    level: 88,
+  },
+  {
+    name: 'SPSS & Stata Data Analysis',
+    category: 'Analytics',
+    level: 92,
+  },
+  {
+    name: 'Quality Control & Risk Assessment',
+    category: 'Quality',
+    level: 94,
+  },
+  {
+    name: 'Project Management',
+    category: 'Management',
+    level: 96,
   },
 ];
 
