@@ -248,3 +248,5 @@ export const skillCategories = [
     icon: Languages,
   },
 ];
+
+
