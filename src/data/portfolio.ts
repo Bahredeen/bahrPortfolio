@@ -14,7 +14,7 @@ import {
 
 export const contactInfo = {
   name: 'Bahredin Ali Muzeyin',
-  title: 'Operations Planning Head | Project Manager | Data Analyst',
+  title: 'Operations Planning & Monitoring Head | Project Manager | Data Analyst',
   email: 'Bahredeen@gmail.com',
   phone: '+251 942211142 / +251 933852875',
   location: 'Hawassa, Ethiopia',
