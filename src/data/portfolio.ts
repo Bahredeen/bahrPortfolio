@@ -9,16 +9,29 @@ import {
   BarChart3,
   Brain,
   Cpu,
-  Code2
+  Code2,
+  User,
+  FolderGit2,
+  Mail
 } from 'lucide-react';
 
-export const contactInfo = {
+export const personalInfo = {
   name: 'Bahredin Ali Muzeyin',
-  title: 'Operations Planning & Monitoring Head | Project Manager | Data Analyst',
+  title: 'Operations Planning Head | Project Manager | Data Analyst',
   email: 'Bahredeen@gmail.com',
   phone: '+251 942211142 / +251 933852875',
   location: 'Hawassa, Ethiopia',
+  about: 'MSc Project Planning & Management graduate with extensive experience in factory operational planning, technical supervision, quality control, SAP ERP system preparation, and peanut manufacturing plant setup.',
 };
+
+export const contactInfo = personalInfo;
+
+export const navLinks = [
+  { name: 'Experience', href: '#experience', icon: Briefcase },
+  { name: 'Education', href: '#education', icon: GraduationCap },
+  { name: 'Skills', href: '#skills', icon: User },
+  { name: 'Contact', href: '#contact', icon: Mail },
+];
 
 export const experiences = [
   {
