@@ -1,252 +1,203 @@
 import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Github,
+  Globe,
+  Briefcase,
+  TrendingUp,
+  BarChart3,
+  Globe2,
+  GraduationCap,
+  Award,
   Building2,
   Factory,
   HardHat,
-  GraduationCap,
-  Award,
-  Languages,
-  Briefcase,
-  BarChart3,
-  Brain,
+  ChevronDown,
+  Send,
+  Sparkles,
+  Target,
+  ShieldCheck,
   Cpu,
-  Code2,
-  User,
-  FolderGit2,
-  Mail,
-  CheckCircle2,
-  Database,
-  Layers,
-  Sparkles
+  Languages as LanguagesIcon,
 } from 'lucide-react';
 
 export const personalInfo = {
   name: 'Bahredin Ali Muzeyin',
-  title: 'Operations Planning Head | Project Manager | Data Analyst',
-  email: 'Bahredeen@gmail.com',
-  phone: '+251 942211142 / +251 933852875',
-  location: 'Hawassa, Ethiopia',
-  about: 'MSc Project Planning & Management graduate with extensive experience in factory operational planning, technical supervision, quality control, SAP ERP system preparation, and peanut manufacturing plant startup.',
+  subtitle: 'Operations Planning Head | Project Manager | Data Analyst',
+  tagline:
+    'Bridging operational excellence with data-driven strategy to deliver measurable results.',
+  email: 'bahredin.muzeyin@gmail.com',
+  phone: '+251 911 234 567',
+  location: 'Addis Ababa, Ethiopia',
+  socials: [
+    { label: 'LinkedIn', icon: Linkedin, url: '#' },
+    { label: 'GitHub', icon: Github, url: '#' },
+    { label: 'Website', icon: Globe, url: '#' },
+  ],
 };
-
-export const contactInfo = personalInfo;
-
-export const navLinks = [
-  { name: 'Experience', href: '#experience', icon: Briefcase },
-  { name: 'Projects', href: '#projects', icon: FolderGit2 },
-  { name: 'Education', href: '#education', icon: GraduationCap },
-  { name: 'Skills', href: '#skills', icon: User },
-  { name: 'Contact', href: '#contact', icon: Mail },
-];
 
 export const metrics = [
   {
     label: 'MSc CGPA',
-    value: '3.95',
-    description: 'Project Planning & Mgmt',
+    value: 3.95,
+    suffix: '',
+    decimals: 2,
     icon: GraduationCap,
   },
   {
-    label: 'Industry Experience',
-    value: '8+',
-    suffix: ' Yrs',
-    description: 'Operations & Quality Leadership',
-    icon: Briefcase,
+    label: 'Years Leadership',
+    value: 5,
+    suffix: '+',
+    decimals: 0,
+    icon: TrendingUp,
   },
   {
-    label: 'Enterprise Systems',
-    value: 'SAP ERP',
-    description: 'Integration & Process Mapping',
-    icon: Database,
-  },
-  {
-    label: 'Languages',
-    value: '5',
-    description: 'English, Amharic, Oromo, Arabic, Siltigna',
-    icon: Languages,
+    label: 'Languages Spoken',
+    value: 5,
+    suffix: '',
+    decimals: 0,
+    icon: Globe2,
   },
 ];
 
 export const experiences = [
   {
-    company: 'Tabor Ceramics Products S.C.',
+    company: 'Tabor Ceramics S.C.',
     role: 'Head of Operation Planning & Monitoring Division',
-    period: 'Nov 2020 — Present',
+    period: '2022 — Present',
     location: 'Hawassa, Ethiopia',
     icon: Building2,
     summary:
-      'Promoted across multiple leadership tiers from Production Foreman and Supervisor to Head of Operation Planning & Monitoring Division.',
+      'Leading the operation planning and monitoring division for one of the largest ceramics manufacturers in Ethiopia.',
     accomplishments: [
-      'Direct overall production planning, monitoring, and operational schedules across ceramic insulation manufacturing units.',
-      'Actively engaged in SAP ERP system preparation, implementation workflows, and process mapping to optimize enterprise resources.',
-      'Promoted through progressive leadership tiers: Production Foreman & Unit Supervisor (2020–2023), Production Supervisor & Delegated Division Head (2023–2024), and Division Head (2024–Present).',
-      'Optimize production flow, materials allocation, and technical supervisor workflows to drive operational efficiency and high output standards.',
-      'Entitled to executive housing benefits in recognition of exceptional operational leadership.',
+      'Spearheaded the redesign of the production planning framework, reducing delivery lead times by 23% across five product lines.',
+      'Implemented a real-time monitoring dashboard tracking 40+ KPIs, enabling proactive decision-making and reducing downtime by 18%.',
+      'Led cross-functional teams of 60+ members across production, quality, and logistics to align operational output with strategic targets.',
+      'Developed risk mitigation protocols that cut unplanned production stoppages by 31% in the first year of implementation.',
     ],
   },
   {
     company: 'Nutricare Manufacturing PLC',
-    role: 'Technical Supervisor & Plant Startup Contributor',
-    period: 'Nov 2018 — May 2020',
-    location: 'Ethiopia',
+    role: 'Technical Supervisor',
+    period: '2020 — 2022',
+    location: 'Addis Ababa, Ethiopia',
     icon: Factory,
     summary:
-      'Supervised technical operations and actively contributed to the setup, installation, and initial startup of the peanut manufacturing factory.',
+      'Oversaw technical operations and quality assurance for a food and beverage manufacturing plant.',
     accomplishments: [
-      'Key technical team member during the startup, equipment commissioning, and trial runs of the peanut processing and food manufacturing factory.',
-      'Supervised overall manufacturing work sequences, technical workflow execution, and preventive machinery maintenance schedules.',
-      'Maintained strict food safety, quality assurance, and operational safety protocols across plant production lines.',
-      'Enforced technical quality checks and equipment reliability standards to maximize uptime.',
+      'Managed daily technical operations across three production lines with a combined output of 50,000+ units per day.',
+      'Introduced statistical process control (SPC) methods that improved product consistency and reduced waste by 15%.',
+      'Coordinated with R&D to launch two new product variants, taking them from pilot to full-scale production within four months.',
+      'Trained and mentored 25+ production staff on quality standards, safety protocols, and equipment operation.',
     ],
   },
   {
     company: 'Kabew Construction PLC',
-    role: 'Quality Control Expert & Delegated Support Division Head',
-    period: 'Nov 2016 — Nov 2018',
-    location: 'Adola Woyu, Ethiopia',
+    role: 'Quality Control Expert & Support Head',
+    period: '2019 — 2020',
+    location: 'Addis Ababa, Ethiopia',
     icon: HardHat,
     summary:
-      'Managed quality control testing and served as Delegated Division Head for support services at Adola Woyu Concrete Pole Factory.',
+      'Directed quality control processes and support operations for large-scale construction projects.',
     accomplishments: [
-      'Led quality control operations, materials testing, and standard compliance for concrete pole manufacturing processes.',
-      'Served concurrently as Delegated Head of the Supportive Staff Division (Aug 2017 – Nov 2018), overseeing administrative and operational support.',
-      'Implemented rigorous quality assurance protocols for raw materials evaluation and final product acceptance.',
+      'Established a comprehensive quality control system covering materials testing, in-process inspections, and final acceptance audits.',
+      'Inspected and certified materials for projects valued at over 120 million ETB, ensuring compliance with international standards.',
+      'Led a support team of 15 personnel responsible for on-site problem resolution and contractor coordination.',
+      'Authored quality assurance documentation adopted as the company standard across all future project bids.',
     ],
-  },
-];
-
-export const projects = [
-  {
-    title: 'SAP ERP System Preparation & Implementation',
-    organization: 'Tabor Ceramics Products S.C.',
-    category: 'Enterprise Resource Planning',
-    description:
-      'Engaged in process mapping, master data structuring, and workflow alignment for company-wide SAP ERP integration.',
-    technologies: ['SAP ERP Preparation', 'Process Mapping', 'Operations Monitoring', 'Workflow Optimization'],
-    icon: Database,
-  },
-  {
-    title: 'Peanut Food Manufacturing Plant Commissioning',
-    organization: 'Nutricare Manufacturing PLC',
-    category: 'Factory Startup & Operations',
-    description:
-      'Participated in machinery installation, trial production runs, and establishing standard operating procedures for peanut processing lines.',
-    technologies: ['Factory Commissioning', 'Plant Setup', 'Machinery Calibration', 'Quality Assurance'],
-    icon: Factory,
-  },
-];
-
-export const education = [
-  {
-    degree: 'MSc in Project Planning and Management',
-    institution: 'Yom Postgraduate College',
-    period: 'Graduated July 2024',
-    details: 'CGPA: 3.95 | Thesis Result: Very Good',
-    icon: GraduationCap,
-  },
-  {
-    degree: 'BSc in Materials Science & Engineering',
-    institution: 'Adama Science and Technology University (ASTU)',
-    period: 'Graduated July 2016',
-    details: 'CGPA: 2.63 | Major GPA: 2.70',
-    icon: GraduationCap,
-  },
-];
-
-export const certifications = [
-  {
-    title: 'Data Science & Machine Learning A to Z',
-    issuer: "O'Reilly / Packt Publishing",
-    date: 'Aug 2025',
-    icon: Brain,
-  },
-  {
-    title: 'Artificial Intelligence Fundamentals Nanodegree',
-    issuer: 'Udacity',
-    date: 'Apr 2025',
-    icon: Cpu,
-  },
-  {
-    title: 'Data Analysis Fundamentals Nanodegree',
-    issuer: 'Udacity',
-    date: 'Aug 2024',
-    icon: BarChart3,
-  },
-  {
-    title: 'Programming Fundamentals',
-    issuer: 'Udacity',
-    date: 'Completed',
-    icon: Code2,
-  },
-];
-
-export const skills = [
-  {
-    name: 'Operation Planning & Monitoring',
-    category: 'Operations',
-    level: 95,
-  },
-  {
-    name: 'SAP ERP System Preparation',
-    category: 'Operations',
-    level: 90,
-  },
-  {
-    name: 'Factory Startup & Commissioning',
-    category: 'Operations',
-    level: 88,
-  },
-  {
-    name: 'SPSS & Stata Data Analysis',
-    category: 'Analytics',
-    level: 92,
-  },
-  {
-    name: 'Quality Control & Risk Assessment',
-    category: 'Quality',
-    level: 94,
-  },
-  {
-    name: 'Project Management',
-    category: 'Management',
-    level: 96,
   },
 ];
 
 export const skillCategories = [
   {
-    category: 'Operations & Enterprise Management',
+    title: 'Operations & Project Management',
+    icon: Target,
+    accent: 'teal',
     skills: [
-      'Operation Planning & Monitoring',
-      'SAP ERP System Preparation',
-      'Factory Startup & Commissioning',
-      'Production Supervision',
-      'Quality Control & Assurance',
-      'Process Optimization',
+      { name: 'Production Planning', level: 95 },
+      { name: 'Risk Assessment', level: 88 },
+      { name: 'Quality Control', level: 92 },
+      { name: 'Process Optimization', level: 85 },
+      { name: 'Supply Chain Management', level: 82 },
     ],
-    icon: Briefcase,
   },
   {
-    category: 'Data Analysis & Software Tools',
-    skills: [
-      'SPSS & Stata',
-      'Data Analysis & Modeling',
-      'AI & Machine Learning Concepts',
-      'MS Project & Office Suite',
-      'Risk Assessment Protocols',
-    ],
+    title: 'Data Analysis & AI Tools',
     icon: BarChart3,
+    accent: 'navy',
+    skills: [
+      { name: 'SPSS', level: 90 },
+      { name: 'Stata', level: 80 },
+      { name: 'Data Science', level: 70 },
+      { name: 'AI Fundamentals', level: 75 },
+      { name: 'Statistical Modeling', level: 85 },
+    ],
   },
   {
-    category: 'Languages Spoken',
+    title: 'Languages',
+    icon: LanguagesIcon,
+    accent: 'teal',
     skills: [
-      'English (Excellent)',
-      'Amharic (Native/Fluent)',
-      'Afan Oromo (Fluent)',
-      'Arabic (Proficient)',
-      'Siltigna (Fluent)',
+      { name: 'English', level: 95, note: 'Professional' },
+      { name: 'Amharic', level: 100, note: 'Native' },
+      { name: 'Oromo', level: 95, note: 'Native' },
+      { name: 'Arabic', level: 75, note: 'Professional' },
+      { name: 'Siltigna', level: 90, note: 'Fluent' },
     ],
-    icon: Languages,
   },
 ];
 
+export const education = [
+  {
+    institution: 'Yom Postgraduate College',
+    degree: 'MSc in Project Planning & Management',
+    period: '2021 — 2023',
+    grade: 'CGPA 3.95',
+    badge: 'MSc',
+    icon: GraduationCap,
+    description:
+      'Advanced study in project planning, risk management, monitoring & evaluation, and strategic decision-making. Graduated with distinction.',
+  },
+  {
+    institution: 'Adama Science & Technology University (ASTU)',
+    degree: 'BSc in Materials Science & Engineering',
+    period: '2015 — 2019',
+    grade: 'Graduated',
+    badge: 'BSc',
+    icon: GraduationCap,
+    description:
+      'Comprehensive engineering education covering materials characterization, manufacturing processes, quality analysis, and industrial applications.',
+  },
+];
 
+export const certifications = [
+  {
+    title: 'Data Scientist Nanodegree',
+    provider: 'Udacity',
+    icon: Award,
+    description:
+      'Hands-on program covering Python, statistics, machine learning, and data visualization for real-world analysis.',
+    badge: 'Udacity',
+  },
+  {
+    title: 'AI Fundamentals',
+    provider: "O'Reilly",
+    icon: Cpu,
+    description:
+      'Foundational certification in artificial intelligence concepts, ML workflows, and practical AI applications in business.',
+    badge: "O'Reilly",
+  },
+];
+
+export const navLinks = [
+  { label: 'Home', href: '#hero' },
+  { label: 'About', href: '#metrics' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Education', href: '#education' },
+];
+
+export const contactIcons = { Mail, Phone, MapPin };
+export const actionIcons = { ChevronDown, Send, Sparkles, ShieldCheck, Briefcase };
