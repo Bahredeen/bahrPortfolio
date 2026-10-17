@@ -61,7 +61,7 @@ export const metrics = [
   },
   {
     label: 'Years Experience',
-    value: 8,
+    value: 9,
     suffix: '+',
     decimals: 0,
     icon: TrendingUp,
