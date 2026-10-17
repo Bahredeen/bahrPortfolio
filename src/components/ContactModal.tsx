@@ -1,5 +1,6 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { X, Send, Mail, Phone, MapPin, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { personalInfo } from '@/data/portfolio';
 import { supabase } from '@/lib/supabase';
 
@@ -41,14 +42,31 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     setSubmitState('loading');
     setErrorMessage('');
 
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedMessage = message.trim();
+
     try {
-      const { error } = await supabase.from('contact_messages').insert({
-        name: name.trim(),
-        email: email.trim(),
-        message: message.trim(),
+      // 1. Save message to Supabase database
+      const { error: supabaseError } = await supabase.from('contact_messages').insert({
+        name: trimmedName,
+        email: trimmedEmail,
+        message: trimmedMessage,
       });
 
-      if (error) throw error;
+      if (supabaseError) throw supabaseError;
+
+      // 2. Dispatch email to Gmail via EmailJS
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: trimmedName,
+          from_email: trimmedEmail,
+          message: trimmedMessage,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
       setSubmitState('success');
       setName('');
@@ -58,7 +76,8 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         setSubmitState('idle');
         onClose();
       }, 2500);
-    } catch {
+    } catch (err) {
+      console.error('Submission error:', err);
       setSubmitState('error');
       setErrorMessage('Something went wrong. Please try again or send an email directly.');
     }
