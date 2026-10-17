@@ -21,6 +21,7 @@ import {
   ShieldCheck,
   Cpu,
   Languages as LanguagesIcon,
+  Send as TelegramIcon,
 } from 'lucide-react';
 
 export const personalInfo = {
@@ -28,13 +29,25 @@ export const personalInfo = {
   subtitle: 'Operations Planning Head | Project Manager | Data Analyst',
   tagline:
     'Bridging operational excellence with data-driven strategy to deliver measurable results.',
-  email: 'bahredin.muzeyin@gmail.com',
-  phone: '+251 911 234 567',
-  location: 'Addis Ababa, Ethiopia',
+  email: 'Bahredeen@gmail.com / astugc2008@gmail.com',
+  phone: '+251 942 211 142 / +251 708 621 142 / +251 933 852 875',
+  location: 'Hawassa City, Ethiopia',
   socials: [
-    { label: 'LinkedIn', icon: Linkedin, url: '#' },
-    { label: 'GitHub', icon: Github, url: '#' },
-    { label: 'Website', icon: Globe, url: '#' },
+    { 
+      label: 'LinkedIn', 
+      icon: Linkedin, 
+      url: 'https://www.linkedin.com/in/bahredin-ali-abusinwar' 
+    },
+    { 
+      label: 'GitHub', 
+      icon: Github, 
+      url: 'https://github.com/Bahredeen/' 
+    },
+    { 
+      label: 'Telegram', 
+      icon: TelegramIcon, 
+      url: 'https://t.me/AbuBasmaBahredeen' 
+    },
   ],
 };
 
@@ -47,8 +60,8 @@ export const metrics = [
     icon: GraduationCap,
   },
   {
-    label: 'Years Leadership',
-    value: 5,
+    label: 'Years Experience',
+    value: 8,
     suffix: '+',
     decimals: 0,
     icon: TrendingUp,
@@ -64,48 +77,46 @@ export const metrics = [
 
 export const experiences = [
   {
-    company: 'Tabor Ceramics S.C.',
-    role: 'Head of Operation Planning & Monitoring Division',
-    period: '2022 — Present',
+    company: 'Tabor Ceramics Product S.C.',
+    role: 'Head of Operations Planning & Monitoring Division',
+    period: 'Nov 2020 — Present',
     location: 'Hawassa, Ethiopia',
     icon: Building2,
     summary:
-      'Leading the operation planning and monitoring division for one of the largest ceramics manufacturers in Ethiopia.',
+      'Demonstrated exceptional leadership and technical proficiency across multiple promotions from Production Foreman to Division Head at Tabor Ceramics Product S.C.',
     accomplishments: [
-      'Spearheaded the redesign of the production planning framework, reducing delivery lead times by 23% across five product lines.',
-      'Implemented a real-time monitoring dashboard tracking 40+ KPIs, enabling proactive decision-making and reducing downtime by 18%.',
-      'Led cross-functional teams of 60+ members across production, quality, and logistics to align operational output with strategic targets.',
-      'Developed risk mitigation protocols that cut unplanned production stoppages by 31% in the first year of implementation.',
+      'Promoted to Head of Operation Planning and Monitoring Division (Dec 2024 — Present) managing full operational strategy, monitoring, and production efficiency.',
+      'Served as Production Supervisor in the Fuse and Insulator Production Department while delegated as Head of Operation Planning and Control Division (July 2023 — Dec 2024).',
+      'Worked as Production Foreman and Unit Supervisor in the Fuse and Composite Insulator Production Department (Nov 2020 — July 2023).',
+      'Improved production output, reduced downtime, and streamlined monitoring frameworks across core manufacturing operations.',
     ],
   },
   {
     company: 'Nutricare Manufacturing PLC',
     role: 'Technical Supervisor',
-    period: '2020 — 2022',
-    location: 'Addis Ababa, Ethiopia',
+    period: 'Nov 2018 — May 2020',
+    location: 'Ethiopia',
     icon: Factory,
     summary:
-      'Oversaw technical operations and quality assurance for a food and beverage manufacturing plant.',
+      'Supervised technical operations, production sequencing, and machinery maintenance for a food and beverage manufacturing plant.',
     accomplishments: [
-      'Managed daily technical operations across three production lines with a combined output of 50,000+ units per day.',
-      'Introduced statistical process control (SPC) methods that improved product consistency and reduced waste by 15%.',
-      'Coordinated with R&D to launch two new product variants, taking them from pilot to full-scale production within four months.',
-      'Trained and mentored 25+ production staff on quality standards, safety protocols, and equipment operation.',
+      'Supervised the complete operational working sequence and daily performance across production lines.',
+      'Managed maintenance schedules and technical care for complex plant machinery, minimizing operational disruption.',
+      'Ensured adherence to strict quality, safety, and manufacturing compliance standards.',
     ],
   },
   {
     company: 'Kabew Construction PLC',
-    role: 'Quality Control Expert & Support Head',
-    period: '2019 — 2020',
-    location: 'Addis Ababa, Ethiopia',
+    role: 'Quality Control Expert & Delegated Supportive Staff Head',
+    period: 'Oct 2016 — Dec 2018',
+    location: 'Adola Woyu, Ethiopia',
     icon: HardHat,
     summary:
-      'Directed quality control processes and support operations for large-scale construction projects.',
+      'Directed quality control operations and delegated management of the supportive staff section at the Adola Wayu Concrete Pole Factory.',
     accomplishments: [
-      'Established a comprehensive quality control system covering materials testing, in-process inspections, and final acceptance audits.',
-      'Inspected and certified materials for projects valued at over 120 million ETB, ensuring compliance with international standards.',
-      'Led a support team of 15 personnel responsible for on-site problem resolution and contractor coordination.',
-      'Authored quality assurance documentation adopted as the company standard across all future project bids.',
+      'Managed concrete pole production quality testing, material inspections, and standard compliance.',
+      'Served as Delegated Head of the Supportive Staff Division (Aug 2017 — Dec 2018), overseeing operational support and personnel coordination.',
+      'Maintained rigorous quality control protocols across manufacturing and delivery workflows.',
     ],
   },
 ];
@@ -116,11 +127,11 @@ export const skillCategories = [
     icon: Target,
     accent: 'teal',
     skills: [
-      { name: 'Production Planning', level: 95 },
-      { name: 'Risk Assessment', level: 88 },
-      { name: 'Quality Control', level: 92 },
-      { name: 'Process Optimization', level: 85 },
-      { name: 'Supply Chain Management', level: 82 },
+      { name: 'Production Planning & Control', level: 95 },
+      { name: 'Project Planning & Management', level: 95 },
+      { name: 'Risk Assessment & Leadership', level: 90 },
+      { name: 'Quality Control & Maintenance', level: 92 },
+      { name: 'Process Optimization', level: 88 },
     ],
   },
   {
@@ -129,10 +140,10 @@ export const skillCategories = [
     accent: 'navy',
     skills: [
       { name: 'SPSS', level: 90 },
-      { name: 'Stata', level: 80 },
-      { name: 'Data Science', level: 70 },
-      { name: 'AI Fundamentals', level: 75 },
-      { name: 'Statistical Modeling', level: 85 },
+      { name: 'Stata', level: 85 },
+      { name: 'Data Analysis & Science', level: 85 },
+      { name: 'Microsoft Office (Excel, Word, Powerpoint)', level: 95 },
+      { name: 'AI Fundamentals', level: 80 },
     ],
   },
   {
@@ -140,11 +151,11 @@ export const skillCategories = [
     icon: LanguagesIcon,
     accent: 'teal',
     skills: [
-      { name: 'English', level: 95, note: 'Professional' },
-      { name: 'Amharic', level: 100, note: 'Native' },
-      { name: 'Oromo', level: 95, note: 'Native' },
-      { name: 'Arabic', level: 75, note: 'Professional' },
-      { name: 'Siltigna', level: 90, note: 'Fluent' },
+      { name: 'English', level: 95, note: 'Excellent' },
+      { name: 'Amharic', level: 100, note: 'Native / Excellent' },
+      { name: 'Afan Oromo', level: 100, note: 'Native / Excellent' },
+      { name: 'Arabic', level: 90, note: 'Excellent' },
+      { name: 'Siltigna', level: 95, note: 'Excellent' },
     ],
   },
 ];
@@ -153,41 +164,49 @@ export const education = [
   {
     institution: 'Yom Postgraduate College',
     degree: 'MSc in Project Planning & Management',
-    period: '2021 — 2023',
-    grade: 'CGPA 3.95',
+    period: 'Completed July 2024',
+    grade: 'CGPA 3.95 (Thesis: Very Good)',
     badge: 'MSc',
     icon: GraduationCap,
     description:
-      'Advanced study in project planning, risk management, monitoring & evaluation, and strategic decision-making. Graduated with distinction.',
+      'Advanced degree in project planning, risk management, and strategic decision-making. Completed coursework with 3.95 CGPA and thesis with distinction.',
   },
   {
     institution: 'Adama Science & Technology University (ASTU)',
     degree: 'BSc in Materials Science & Engineering',
-    period: '2015 — 2019',
-    grade: 'Graduated',
+    period: 'Completed July 2016',
+    grade: 'Major GPA 2.70 / CGPA 2.63',
     badge: 'BSc',
     icon: GraduationCap,
     description:
-      'Comprehensive engineering education covering materials characterization, manufacturing processes, quality analysis, and industrial applications.',
+      'Engineering education covering materials characterization, manufacturing processes, testing, and quality analysis.',
   },
 ];
 
 export const certifications = [
   {
-    title: 'Data Scientist Nanodegree',
+    title: 'Data Analysis Fundamentals',
     provider: 'Udacity',
     icon: Award,
     description:
-      'Hands-on program covering Python, statistics, machine learning, and data visualization for real-world analysis.',
+      'Nanodegree program covering essential data analysis techniques, statistics, and data processing workflows (Issued Aug 2024).',
     badge: 'Udacity',
   },
   {
-    title: 'AI Fundamentals',
-    provider: "O'Reilly",
+    title: 'Data Science & ML A to Z',
+    provider: "O'Reilly / Packt Publishing",
     icon: Cpu,
     description:
-      'Foundational certification in artificial intelligence concepts, ML workflows, and practical AI applications in business.',
+      'Comprehensive 93.5-hour certification covering data science, machine learning workflows, and analytical modeling (Issued Aug 2025).',
     badge: "O'Reilly",
+  },
+  {
+    title: 'Artificial Intelligence Fundamentals',
+    provider: 'Udacity',
+    icon: Cpu,
+    description:
+      'Foundational Nanodegree covering core artificial intelligence algorithms, workflows, and business applications (Issued Apr 2025).',
+    badge: 'Udacity',
   },
 ];
 
