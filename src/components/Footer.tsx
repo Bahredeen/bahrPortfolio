@@ -1,5 +1,4 @@
-import { Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
-import { personalInfo, navLinks } from '@/data/portfolio';
+import { ArrowUp } from 'lucide-react';
 
 interface FooterProps {
   onContactClick: () => void;
