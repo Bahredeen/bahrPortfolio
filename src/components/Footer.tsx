@@ -1,4 +1,5 @@
-import { ArrowUp } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
+import { personalInfo, navLinks } from '@/data/portfolio';
 
 interface FooterProps {
   onContactClick: () => void;
@@ -64,14 +65,14 @@ export function Footer({ onContactClick }: FooterProps) {
             </h3>
             <div className="flex flex-col gap-3">
               <a
-                href={`mailto:${personalInfo.email}`}
+                href={`mailto:${personalInfo.email.split(' / ')[0]}`}
                 className="inline-flex items-center gap-2 text-sm text-navy-300 hover:text-teal-400 transition-colors w-fit"
               >
                 <Mail size={15} className="text-teal-500" />
                 {personalInfo.email}
               </a>
               <a
-                href={`tel:${personalInfo.phone.replace(/\s/g, '')}`}
+                href={`tel:${personalInfo.phone.split(' / ')[0].replace(/\s/g, '')}`}
                 className="inline-flex items-center gap-2 text-sm text-navy-300 hover:text-teal-400 transition-colors w-fit"
               >
                 <Phone size={15} className="text-teal-500" />
