@@ -47,18 +47,14 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     try {
       // 1. Log message in Supabase database
-      const { error: supabaseError } = await supabase.from('contact_messages').insert({
+      await supabase.from('contact_messages').insert({
         name: trimmedName,
         email: trimmedEmail,
         message: trimmedMessage,
-      });
-
-      if (supabaseError) {
-        console.error('Supabase Error:', supabaseError);
-      }
+      }).catch((sbErr) => console.error('Supabase Error:', sbErr));
 
       // 2. Dispatch email via Web3Forms API
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const web3Res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,13 +69,12 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         }),
       });
 
-      const result = await response.json();
-
-      if (!result.success) {
-        throw new Error(result.message || 'Failed to send email via Web3Forms.');
+      const web3Result = await web3Res.json();
+      if (!web3Result.success) {
+        throw new Error(web3Result.message || 'Failed to send email via Web3Forms.');
       }
 
-      // 3. Send Telegram notification
+      // 3. Send Telegram notification concurrently
       const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
       const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 
@@ -93,7 +88,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             text: text,
             parse_mode: 'Markdown',
           }),
-        }).catch((tgErr) => console.error('Telegram Error:', tgErr));
+        }).catch((tgErr) => console.error('Telegram API Error:', tgErr));
       }
 
       setSubmitState('success');
@@ -114,8 +109,8 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   if (!isOpen) return null;
 
   const contactItems = [
-    { label: personalInfo.email, icon: Mail, href: `mailto:${personalInfo.email}` },
-    { label: personalInfo.phone, icon: Phone, href: `tel:${personalInfo.phone.replace(/\s/g, '')}` },
+    { label: personalInfo.email, icon: Mail, href: `mailto:${personalInfo.email.split(' / ')[0]}` },
+    { label: personalInfo.phone, icon: Phone, href: `tel:${personalInfo.phone.split(' / ')[0].replace(/\s/g, '')}` },
     { label: personalInfo.location, icon: MapPin, href: '#' },
   ];
 
