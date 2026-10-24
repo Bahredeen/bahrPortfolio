@@ -4,8 +4,6 @@ import {
   MapPin,
   Linkedin,
   Github,
-  Globe,
-  Briefcase,
   TrendingUp,
   BarChart3,
   Globe2,
@@ -18,31 +16,37 @@ import {
   Send,
   Sparkles,
   Target,
-  ShieldCheck,
   Cpu,
   Languages as LanguagesIcon,
   Send as TelegramIcon,
 } from 'lucide-react';
+
+export const getPublicAsset = (fileName: string): string => {
+  const base = import.meta.env.BASE_URL || '/bahrPortfolio/';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanFile = fileName.startsWith('/') ? fileName.slice(1) : fileName;
+  return `${cleanBase}${encodeURI(cleanFile)}`;
+};
 
 export const personalInfo = {
   name: 'Bahredin Ali Muzeyin',
   subtitle: 'Operations Planning Head | Project Manager | Data Analyst',
   tagline:
     'Bridging operational excellence with data-driven strategy to deliver measurable results.',
-  avatar: '/Profile pic.png',
+  avatar: getPublicAsset('profile.png'),
   email: 'Bahredeen@gmail.com / astugc2008@gmail.com',
   phone: '+251 942 211 142 / +251 708 621 142 / +251 933 852 875',
   location: 'Hawassa City, Ethiopia',
   socials: [
     {
+      label: 'GitHub',
+      icon: Github,
+      url: 'https://github.com/Bahredeen',
+    },
+    {
       label: 'LinkedIn',
       icon: Linkedin,
       url: 'https://www.linkedin.com/in/bahredin-ali-abusinwar',
-    },
-    {
-      label: 'GitHub',
-      icon: Github,
-      url: 'https://github.com/Bahredeen/',
     },
     {
       label: 'Telegram',
@@ -83,7 +87,7 @@ export const experiences = [
     period: 'Nov 2020 — Present',
     location: 'Hawassa, Ethiopia',
     icon: Building2,
-    documentUrl: '/tabor experience.png',
+    documentUrl: getPublicAsset('tabor experience.jpg'),
     summary:
       'Demonstrated exceptional leadership and technical proficiency across multiple promotions from Production Foreman to Division Head at Tabor Ceramics Product S.C.',
     accomplishments: [
@@ -99,7 +103,7 @@ export const experiences = [
     period: 'Nov 2018 — May 2020',
     location: 'Ethiopia',
     icon: Factory,
-    documentUrl: '/nutricare experience.jpg',
+    documentUrl: getPublicAsset('nutricare experience.jpg'),
     summary:
       'Supervised technical operations, production sequencing, and machinery maintenance for a food and beverage manufacturing plant.',
     accomplishments: [
@@ -114,7 +118,7 @@ export const experiences = [
     period: 'Oct 2016 — Dec 2018',
     location: 'Adola Woyu, Ethiopia',
     icon: HardHat,
-    documentUrl: '/kabow experience.jpg',
+    documentUrl: getPublicAsset('kabow experience.jpg'),
     summary:
       'Directed quality control operations and delegated management of the supportive staff section at the Adola Wayu Concrete Pole Factory.',
     accomplishments: [
@@ -172,7 +176,7 @@ export const education = [
     grade: 'CGPA 3.95 (Thesis: Very Good)',
     badge: 'MSc',
     icon: GraduationCap,
-    documentUrl: '/msc degree.png',
+    documentUrl: getPublicAsset('msc degree.jpg'),
     description:
       'Advanced degree in project planning, risk management, and strategic decision-making. Completed coursework with 3.95 CGPA and thesis with distinction.',
   },
@@ -183,7 +187,7 @@ export const education = [
     grade: 'Major GPA 2.70 / CGPA 2.63',
     badge: 'BSc',
     icon: GraduationCap,
-    documentUrl: '/bsc degree.jpg',
+    documentUrl: getPublicAsset('bsc degree.jpg'),
     description:
       'Engineering education covering materials characterization, manufacturing processes, testing, and quality analysis.',
   },
@@ -197,7 +201,7 @@ export const certifications = [
     description:
       'Nanodegree program covering essential data analysis techniques, statistics, and data processing workflows (Issued Aug 2024).',
     badge: 'Udacity',
-    documentUrl: '/data analysis.png',
+    documentUrl: getPublicAsset('data analysis.png'),
   },
   {
     title: 'Data Science & ML A to Z',
@@ -206,7 +210,7 @@ export const certifications = [
     description:
       'Comprehensive 93.5-hour certification covering data science, machine learning workflows, and analytical modeling (Issued Aug 2025).',
     badge: "O'Reilly",
-    documentUrl: '/data science.png',
+    documentUrl: getPublicAsset('data science.png'),
   },
   {
     title: 'Artificial Intelligence Fundamentals',
@@ -215,7 +219,7 @@ export const certifications = [
     description:
       'Foundational Nanodegree covering core artificial intelligence algorithms, workflows, and business applications (Issued Apr 2025).',
     badge: 'Udacity',
-    documentUrl: '/AI.png',
+    documentUrl: getPublicAsset('AI.png'),
   },
 ];
 
@@ -229,4 +233,4 @@ export const navLinks = [
 ];
 
 export const contactIcons = { Mail, Phone, MapPin };
-export const actionIcons = { ChevronDown, Send, Sparkles, ShieldCheck, Briefcase };
+export const actionIcons = { ChevronDown, Send, Sparkles };
