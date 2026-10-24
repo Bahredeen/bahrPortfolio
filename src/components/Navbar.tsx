@@ -34,7 +34,6 @@ export function Navbar({ onContactClick }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-18">
-          {/* Logo / Name */}
           <button
             onClick={() => handleNavClick('#hero')}
             className="flex items-center gap-2 font-display font-bold text-navy-900 dark:text-white text-lg"
@@ -45,7 +44,6 @@ export function Navbar({ onContactClick }: NavbarProps) {
             <span className="hidden sm:inline">{personalInfo.name.split(' ').slice(-1)[0]}</span>
           </button>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <button
@@ -70,21 +68,19 @@ export function Navbar({ onContactClick }: NavbarProps) {
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
-            {/* Profile Avatar */}
             <button
               onClick={() => handleNavClick('#hero')}
               className="ml-2 flex items-center justify-center p-0.5 rounded-full ring-2 ring-teal-500/50 hover:ring-teal-400 transition-all hover:scale-105"
               aria-label="View Profile"
             >
               <img
-                src={personalInfo.avatar || '/Profile pic.png'}
+                src={personalInfo.avatar}
                 alt={personalInfo.name}
                 className="w-9 h-9 rounded-full object-cover shadow-sm"
               />
             </button>
           </div>
 
-          {/* Mobile Controls */}
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => handleNavClick('#hero')}
@@ -92,7 +88,7 @@ export function Navbar({ onContactClick }: NavbarProps) {
               aria-label="View Profile"
             >
               <img
-                src={personalInfo.avatar || '/Profile pic.png'}
+                src={personalInfo.avatar}
                 alt={personalInfo.name}
                 className="w-8 h-8 rounded-full object-cover"
               />
@@ -114,7 +110,6 @@ export function Navbar({ onContactClick }: NavbarProps) {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden py-4 animate-fade-in-down">
             <div className="flex flex-col gap-1 pb-3">
