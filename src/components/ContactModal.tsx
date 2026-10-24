@@ -1,7 +1,6 @@
 import { useState, useEffect, type FormEvent } from 'react';
 import { X, Send, Mail, Phone, MapPin, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
-import { supabase } from '@/lib/supabase';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -45,20 +44,16 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const trimmedEmail = email.trim();
     const trimmedMessage = message.trim();
 
-    try {
-      // 1. Log message in Supabase database
-      await supabase.from('contact_messages').insert({
-        name: trimmedName,
-        email: trimmedEmail,
-        message: trimmedMessage,
-      }).catch((sbErr) => console.error('Supabase Error:', sbErr));
+    let emailSent = false;
+    let tgSent = false;
 
-      // 2. Dispatch email via Web3Forms API
+    // 1. Dispatch email via Web3Forms API to bahredeen@gmail.com
+    try {
       const web3Res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json',
+          Accept: 'application/json',
         },
         body: JSON.stringify({
           access_key: '3d04ce04-4fb4-4284-a508-3b7d2572c0f1',
@@ -66,31 +61,42 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           email: trimmedEmail,
           message: trimmedMessage,
           subject: `New Portfolio Message from ${trimmedName}`,
+          to_email: 'bahredeen@gmail.com',
         }),
       });
 
       const web3Result = await web3Res.json();
-      if (!web3Result.success) {
-        throw new Error(web3Result.message || 'Failed to send email via Web3Forms.');
+      if (web3Result.success) {
+        emailSent = true;
       }
+    } catch (web3Err) {
+      console.error('Web3Forms Error:', web3Err);
+    }
 
-      // 3. Send Telegram notification concurrently
-      const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-      const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+    // 2. Dispatch to Telegram Bot (Chat ID: 433708398)
+    const botToken = '8841038095:AAGsUz8qwGe8KdoixTIPG9a0LumEWgqd_qg';
+    const chatId = '433708398';
 
-      if (botToken && chatId) {
-        const text = `📬 *New Portfolio Message!*\n\n*Name:* ${trimmedName}\n*Email:* ${trimmedEmail}\n*Message:* ${trimmedMessage}`;
-        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: chatId,
-            text: text,
-            parse_mode: 'Markdown',
-          }),
-        }).catch((tgErr) => console.error('Telegram API Error:', tgErr));
+    try {
+      const text = `📬 New Portfolio Message!\n\nName: ${trimmedName}\nEmail: ${trimmedEmail}\nMessage:\n${trimmedMessage}`;
+      const tgRes = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text,
+        }),
+      });
+
+      const tgResult = await tgRes.json();
+      if (tgResult.ok) {
+        tgSent = true;
       }
+    } catch (tgErr) {
+      console.error('Telegram API Error:', tgErr);
+    }
 
+    if (emailSent || tgSent) {
       setSubmitState('success');
       setName('');
       setEmail('');
@@ -99,8 +105,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         setSubmitState('idle');
         onClose();
       }, 2500);
-    } catch (err: any) {
-      console.error('Submission error:', err);
+    } else {
       setSubmitState('error');
       setErrorMessage('Something went wrong. Please try again or send an email directly.');
     }
