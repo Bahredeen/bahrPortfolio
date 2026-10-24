@@ -31,7 +31,7 @@ export const getPublicAsset = (fileName: string): string => {
 
 export const personalInfo = {
   name: 'Bahredin Ali Muzeyin',
-  subtitle: 'Operations Planning Head | Project Manager | Data Analyst',
+  subtitle: 'Operations Planning and Monitoring Head | Project Manager | Data Analyst',
   tagline:
     'Bridging operational excellence with data-driven strategy to deliver measurable results.',
   avatar: getPublicAsset('profile.png'),
@@ -88,7 +88,7 @@ export const experiences = [
     period: 'Nov 2020 — Present',
     location: 'Hawassa, Ethiopia',
     icon: Building2,
-    documentUrl: getPublicAsset('tabor experience.jpg'),
+    documentUrl: getPublicAsset('tabor experience.png'),
     summary:
       'Demonstrated exceptional leadership and technical proficiency across multiple promotions from Production Foreman to Division Head at Tabor Ceramics Product S.C.',
     accomplishments: [
@@ -108,6 +108,7 @@ export const experiences = [
     summary:
       'Supervised technical operations, production sequencing, and machinery maintenance for a food and beverage manufacturing plant.',
     accomplishments: [
+      'lead the technic team in the machine installation phase, whiting SAP, configuring Machineries and the work flow o the ROSA PEANUT Manufacturing Plant under the Nutricare Manufacturing.',
       'Supervised the complete operational working sequence and daily performance across production lines.',
       'Managed maintenance schedules and technical care for complex plant machinery, minimizing operational disruption.',
       'Ensured adherence to strict quality, safety, and manufacturing compliance standards.',
@@ -124,7 +125,7 @@ export const experiences = [
       'Directed quality control operations and delegated management of the supportive staff section at the Adola Wayu Concrete Pole Factory.',
     accomplishments: [
       'Managed concrete pole production quality testing, material inspections, and standard compliance.',
-      'Served as Delegated Head of the Supportive Staff Division (Aug 2017 — Dec 2018), overseeing operational support and personnel coordination.',
+      'Served as Delegated Head of the Supportive Staff Division (Aug 2017 — Dec 2018), overseeing operational support and personnel coordination, including HR management and Finance management.',
       'Maintained rigorous quality control protocols across manufacturing and delivery workflows.',
     ],
   },
@@ -160,10 +161,10 @@ export const skillCategories = [
     icon: LanguagesIcon,
     accent: 'teal',
     skills: [
-      { name: 'English', level: 95, note: 'Excellent' },
-      { name: 'Amharic', level: 100, note: 'Native / Excellent' },
-      { name: 'Afan Oromo', level: 100, note: 'Native / Excellent' },
-      { name: 'Arabic', level: 90, note: 'Excellent' },
+      { name: 'English', level: 90, note: 'Excellent' },
+      { name: 'Amharic', level: 99, note: 'Native / Excellent' },
+      { name: 'Afan Oromo', level: 99, note: 'Native / Excellent' },
+      { name: 'Arabic', level: 85, note: 'Excellent' },
       { name: 'Siltigna', level: 95, note: 'Excellent' },
     ],
   },
