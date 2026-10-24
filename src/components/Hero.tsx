@@ -14,13 +14,13 @@ export function Hero({ onContactClick }: HeroProps) {
     {
       label: 'Email',
       icon: Mail,
-      href: `mailto:${personalInfo.email}`,
+      href: `mailto:${personalInfo.email.split(' / ')[0]}`,
       external: false,
     },
     {
       label: 'Phone',
       icon: Phone,
-      href: `tel:${personalInfo.phone.replace(/\s/g, '')}`,
+      href: `tel:${personalInfo.phone.split(' / ')[0].replace(/\s/g, '')}`,
       external: false,
     },
     {
@@ -36,7 +36,6 @@ export function Hero({ onContactClick }: HeroProps) {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy-50 via-white to-teal-50 dark:from-navy-950 dark:via-navy-900 dark:to-navy-950 bg-grid pt-24 pb-16"
     >
-      {/* Background Orbs */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-teal-500/10 dark:bg-teal-500/5 rounded-full blur-3xl animate-pulse-soft" />
       <div
         className="absolute bottom-1/4 -right-32 w-96 h-96 bg-navy-500/10 dark:bg-navy-400/5 rounded-full blur-3xl animate-pulse-soft"
@@ -45,10 +44,7 @@ export function Hero({ onContactClick }: HeroProps) {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          
-          {/* Left Side: Content (Taking ~60% width) */}
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
-            {/* Availability Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-teal-50 dark:bg-teal-500/10 border border-teal-200 dark:border-teal-500/20 animate-fade-in-down">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-500 opacity-75" />
@@ -59,12 +55,10 @@ export function Hero({ onContactClick }: HeroProps) {
               </span>
             </div>
 
-            {/* Name */}
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-navy-900 dark:text-white tracking-tight animate-fade-in-up leading-[1.1]">
               {personalInfo.name}
             </h1>
 
-            {/* Subtitle */}
             <p
               className="mt-6 text-lg sm:text-xl md:text-2xl font-medium text-gradient animate-fade-in-up"
               style={{ animationDelay: '0.15s' }}
@@ -72,7 +66,6 @@ export function Hero({ onContactClick }: HeroProps) {
               {personalInfo.subtitle}
             </p>
 
-            {/* Tagline */}
             <p
               className="mt-6 text-base sm:text-lg text-navy-600 dark:text-navy-300 max-w-2xl leading-relaxed animate-fade-in-up"
               style={{ animationDelay: '0.3s' }}
@@ -80,7 +73,6 @@ export function Hero({ onContactClick }: HeroProps) {
               {personalInfo.tagline}
             </p>
 
-            {/* Quick Contact Buttons */}
             <div
               className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 animate-fade-in-up"
               style={{ animationDelay: '0.45s' }}
@@ -102,7 +94,6 @@ export function Hero({ onContactClick }: HeroProps) {
               })}
             </div>
 
-            {/* Main Action Buttons */}
             <div
               className="mt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fade-in-up w-full sm:w-auto"
               style={{ animationDelay: '0.6s' }}
@@ -124,27 +115,21 @@ export function Hero({ onContactClick }: HeroProps) {
             </div>
           </div>
 
-          {/* Right Side: Large Profile Picture Card (Matching shape in 2nd image) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <div className="relative w-72 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[450px] lg:w-[380px] lg:h-[460px]">
-              {/* Subtle Teal Glow Behind Image */}
               <div className="absolute inset-0 rounded-[2.5rem] bg-teal-500/20 dark:bg-teal-500/30 blur-2xl transform scale-95" />
-
-              {/* Card Frame matching 2nd screenshot */}
               <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border-2 border-teal-500/30 dark:border-teal-500/40 shadow-2xl bg-slate-200 dark:bg-navy-900 group">
                 <img
-                  src={personalInfo.avatar || '/Profile pic.png'}
+                  src={personalInfo.avatar}
                   alt={personalInfo.name}
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-float hidden sm:block">
         <div className="flex flex-col items-center gap-2">
           <span className="text-xs text-navy-400 dark:text-navy-500 uppercase tracking-widest">Scroll</span>
