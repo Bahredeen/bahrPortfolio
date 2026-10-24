@@ -178,7 +178,7 @@ export const education = [
     grade: 'CGPA 3.95 (Thesis: Very Good)',
     badge: 'MSc',
     icon: GraduationCap,
-    documentUrl: getPublicAsset('msc degree.jpg'),
+    documentUrl: getPublicAsset('msc degree.png'),
     description:
       'Advanced degree in project planning, risk management, and strategic decision-making. Completed coursework with 3.95 CGPA and thesis with distinction.',
   },
