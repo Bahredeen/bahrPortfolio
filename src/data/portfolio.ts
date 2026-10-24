@@ -21,11 +21,12 @@ import {
   Send as TelegramIcon,
 } from 'lucide-react';
 
+// Resolves public assets correctly whether running locally or on GitHub Pages (/bahrPortfolio/)
 export const getPublicAsset = (fileName: string): string => {
-  const base = import.meta.env.BASE_URL || '/bahrPortfolio/';
+  const base = import.meta.env.BASE_URL || '/';
   const cleanBase = base.endsWith('/') ? base : `${base}/`;
   const cleanFile = fileName.startsWith('/') ? fileName.slice(1) : fileName;
-  return `${cleanBase}${encodeURI(cleanFile)}`;
+  return `${cleanBase}${cleanFile}`;
 };
 
 export const personalInfo = {
