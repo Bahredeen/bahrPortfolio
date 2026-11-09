@@ -88,7 +88,7 @@ export const experiences = [
     period: 'Nov 2020 — Present',
     location: 'Hawassa, Ethiopia',
     icon: Building2,
-    documentUrl: getPublicAsset('tabor experience.jpg'),
+    documentUrl: getPublicAsset('tabor experience.png'),
     summary:
       'Demonstrated exceptional leadership and technical proficiency across multiple promotions from Production Foreman to Division Head at Tabor Ceramics Product S.C.',
     accomplishments: [
@@ -124,7 +124,7 @@ export const experiences = [
       'Directed quality control operations and delegated management of the supportive staff section at the Adola Wayu Concrete Pole Factory.',
     accomplishments: [
       'Managed concrete pole production quality testing, material inspections, and standard compliance.',
-      'Served as Delegated Head of the Supportive Staff Division (Aug 2017 — Dec 2018), overseeing operational support and personnel coordination.',
+      'Served as Delegated Head of the Supportive Staff Division (Aug 2017 — Dec 2018), overseeing operational support HRM, Finance, Logistics departments and personnel coordination.',
       'Maintained rigorous quality control protocols across manufacturing and delivery workflows.',
     ],
   },
@@ -161,8 +161,8 @@ export const skillCategories = [
     accent: 'teal',
     skills: [
       { name: 'English', level: 95, note: 'Excellent' },
-      { name: 'Amharic', level: 100, note: 'Native / Excellent' },
-      { name: 'Afan Oromo', level: 100, note: 'Native / Excellent' },
+      { name: 'Amharic', level:99, note: 'Native / Excellent' },
+      { name: 'Afan Oromo', level: 99, note: 'Native / Excellent' },
       { name: 'Arabic', level: 90, note: 'Excellent' },
       { name: 'Siltigna', level: 95, note: 'Excellent' },
     ],
@@ -177,7 +177,7 @@ export const education = [
     grade: 'CGPA 3.95 (Thesis: Very Good)',
     badge: 'MSc',
     icon: GraduationCap,
-    documentUrl: getPublicAsset('msc degree.jpg'),
+    documentUrl: getPublicAsset('msc degree.png'),
     description:
       'Advanced degree in project planning, risk management, and strategic decision-making. Completed coursework with 3.95 CGPA and thesis with distinction.',
   },
