@@ -2,16 +2,33 @@ import { useState } from 'react';
 import { certifications } from '@/data/portfolio';
 import { SectionHeading } from './SectionHeading';
 import { ScrollReveal } from './ScrollReveal';
-import { Award, ChevronDown, FileText } from 'lucide-react';
+import { DocumentModal } from './DocumentModal';
+import { Award, Eye, Download, CheckCircle, ShieldCheck } from 'lucide-react';
 
 export function Certifications() {
-  const [selectedCert, setSelectedCert] = useState('');
+  const [modalState, setModalState] = useState<{
+    isOpen: boolean;
+    title: string;
+    subtitle: string;
+    url: string;
+  }>({
+    isOpen: false,
+    title: '',
+    subtitle: '',
+    url: '',
+  });
 
-  const handleSelect = (url: string) => {
-    if (url) {
-      window.open(encodeURI(url), '_blank');
-      setSelectedCert('');
-    }
+  const openPreview = (title: string, subtitle: string, url: string) => {
+    setModalState({
+      isOpen: true,
+      title,
+      subtitle,
+      url,
+    });
+  };
+
+  const closePreview = () => {
+    setModalState((prev) => ({ ...prev, isOpen: false }));
   };
 
   return (
@@ -24,71 +41,72 @@ export function Certifications() {
           <SectionHeading
             eyebrow="Continuous Learning"
             title="Certifications & Training"
-            description="Verified qualifications in Data Science, Machine Learning, and AI Fundamentals."
+            description="Verified credentials in Data Science, Machine Learning, and Artificial Intelligence Fundamentals."
             icon={<Award size={16} />}
           />
         </ScrollReveal>
 
         {/* Certifications Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {certifications.map((cert, index) => {
             const Icon = cert.icon || Award;
             return (
               <ScrollReveal key={cert.title} delay={index * 120}>
-                <div className="group h-full p-5 md:p-6 rounded-2xl bg-navy-50/50 dark:bg-navy-900/50 border border-navy-200/60 dark:border-navy-800/50 hover:border-teal-300 dark:hover:border-teal-500/50 hover:shadow-xl hover:shadow-teal-500/10 transition-all duration-300 hover:-translate-y-1">
-                  <div className="flex items-start gap-4">
-                    <div className="shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/10 to-teal-600/10 dark:from-teal-500/15 dark:to-teal-600/15 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Icon size={22} className="text-teal-600 dark:text-teal-400" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="px-2.5 py-0.5 rounded-full bg-teal-100 dark:bg-teal-500/15 text-teal-700 dark:text-teal-300 text-xs font-bold">
-                          {cert.badge}
-                        </span>
+                <div className="group h-full flex flex-col justify-between p-6 rounded-3xl bg-navy-50/50 dark:bg-navy-900/60 border border-navy-200/70 dark:border-navy-800/70 hover:border-teal-300 dark:hover:border-teal-500/50 hover:shadow-xl hover:shadow-teal-500/10 transition-all duration-300 hover:-translate-y-1">
+                  <div>
+                    <div className="flex items-start justify-between gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500/10 to-teal-600/10 dark:from-teal-500/20 dark:to-teal-600/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Icon size={24} className="text-teal-600 dark:text-teal-400" />
                       </div>
-                      <h3 className="font-display text-sm md:text-base font-bold text-navy-900 dark:text-white leading-tight">
-                        {cert.title}
-                      </h3>
-                      <p className="mt-1 text-xs font-semibold text-teal-600 dark:text-teal-400">
-                        {cert.provider}
-                      </p>
-                      <p className="mt-2 text-sm text-navy-600 dark:text-navy-300 leading-relaxed">
-                        {cert.description}
-                      </p>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-teal-100/70 dark:bg-teal-500/15 text-teal-700 dark:text-teal-300 text-xs font-bold">
+                        <ShieldCheck size={12} />
+                        {cert.badge}
+                      </span>
                     </div>
+
+                    <h3 className="font-display text-base font-bold text-navy-900 dark:text-white leading-snug">
+                      {cert.title}
+                    </h3>
+                    <p className="mt-1 text-xs font-semibold text-teal-600 dark:text-teal-400">
+                      {cert.provider}
+                    </p>
+                    <p className="mt-3 text-sm text-navy-600 dark:text-navy-300 leading-relaxed">
+                      {cert.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-navy-200/50 dark:border-navy-800 flex items-center justify-between">
+                    <button
+                      onClick={() => openPreview(cert.title, cert.provider, cert.documentUrl)}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 group-hover:translate-x-0.5 transition-all"
+                    >
+                      <Eye size={14} />
+                      <span>Inspect Credential</span>
+                    </button>
+
+                    <a
+                      href={cert.documentUrl}
+                      download
+                      className="p-1.5 rounded-lg text-navy-400 hover:text-navy-700 dark:hover:text-white hover:bg-navy-200/50 dark:hover:bg-navy-800 transition-colors"
+                      title="Download Certificate"
+                    >
+                      <Download size={15} />
+                    </a>
                   </div>
                 </div>
               </ScrollReveal>
             );
           })}
         </div>
-
-        {/* Dropdown Selector at Bottom */}
-        <ScrollReveal delay={200}>
-          <div className="max-w-md mx-auto p-6 rounded-2xl bg-navy-50/80 dark:bg-navy-900/80 border border-navy-200 dark:border-navy-800 text-center shadow-md">
-            <div className="flex items-center justify-center gap-2 mb-3 text-teal-600 dark:text-teal-400 font-bold text-sm">
-              <FileText size={18} />
-              <span>Select & View Official Certificates</span>
-            </div>
-
-            <div className="relative">
-              <select
-                value={selectedCert}
-                onChange={(e) => handleSelect(e.target.value)}
-                className="w-full appearance-none px-4 py-3 pr-10 rounded-xl bg-white dark:bg-navy-950 border border-navy-200 dark:border-navy-700 text-navy-900 dark:text-white text-sm font-medium focus:border-teal-500 outline-none cursor-pointer shadow-sm transition-all"
-              >
-                <option value="">-- Choose a Certificate to View --</option>
-                {certifications.map((cert) => (
-                  <option key={cert.title} value={cert.documentUrl}>
-                    {cert.title} ({cert.provider})
-                  </option>
-                ))}
-              </select>
-              <ChevronDown size={18} className="absolute right-3.5 top-3.5 text-navy-400 pointer-events-none" />
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
+
+      <DocumentModal
+        isOpen={modalState.isOpen}
+        onClose={closePreview}
+        title={modalState.title}
+        subtitle={modalState.subtitle}
+        documentUrl={modalState.url}
+      />
     </section>
   );
 }

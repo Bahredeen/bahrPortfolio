@@ -2,17 +2,33 @@ import { useState } from 'react';
 import { education } from '@/data/portfolio';
 import { SectionHeading } from './SectionHeading';
 import { ScrollReveal } from './ScrollReveal';
-import { GraduationCap, CheckCircle2, ChevronDown, FileText } from 'lucide-react';
+import { DocumentModal } from './DocumentModal';
+import { GraduationCap, CheckCircle2, Eye, Download, Award } from 'lucide-react';
 
 export function Education() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [selectedDegree, setSelectedDegree] = useState('');
+  const [modalState, setModalState] = useState<{
+    isOpen: boolean;
+    title: string;
+    subtitle: string;
+    url: string;
+  }>({
+    isOpen: false,
+    title: '',
+    subtitle: '',
+    url: '',
+  });
 
-  const handleSelect = (url: string) => {
-    if (url) {
-      window.open(encodeURI(url), '_blank');
-      setSelectedDegree('');
-    }
+  const openPreview = (title: string, subtitle: string, url: string) => {
+    setModalState({
+      isOpen: true,
+      title,
+      subtitle,
+      url,
+    });
+  };
+
+  const closePreview = () => {
+    setModalState((prev) => ({ ...prev, isOpen: false }));
   };
 
   return (
@@ -26,90 +42,85 @@ export function Education() {
         <ScrollReveal>
           <SectionHeading
             eyebrow="Academic Background"
-            title="Education & Academic Achievements"
-            description="A foundation built on engineering and advanced project management degrees."
+            title="Education & Academic Credentials"
+            description="Verified university degrees in engineering and advanced project planning & management."
             icon={<GraduationCap size={16} />}
           />
         </ScrollReveal>
 
-        {/* Education Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+        {/* Education Credential Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {education.map((edu, index) => {
             const Icon = edu.icon || GraduationCap;
-            const isActive = activeIndex === index;
 
             return (
               <ScrollReveal key={edu.institution} delay={index * 120}>
-                <button
-                  onClick={() => setActiveIndex(isActive ? -1 : index)}
-                  className={`w-full text-left p-6 md:p-7 rounded-2xl border transition-all duration-300 ${
-                    isActive
-                      ? 'bg-white dark:bg-navy-800/80 border-teal-300 dark:border-teal-500/50 shadow-xl shadow-teal-500/10'
-                      : 'bg-white/60 dark:bg-navy-800/40 border-navy-200/60 dark:border-navy-700/50 hover:border-teal-300 dark:hover:border-teal-500/40 hover:shadow-lg'
-                  }`}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-lg shadow-teal-500/20">
-                      <Icon size={24} className="text-white" />
+                <div className="group h-full flex flex-col justify-between p-6 sm:p-8 rounded-3xl bg-white dark:bg-navy-800/80 border border-navy-200/80 dark:border-navy-700/70 hover:border-teal-400/80 dark:hover:border-teal-500/80 shadow-md hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 hover:-translate-y-1">
+                  <div>
+                    <div className="flex items-start justify-between gap-4 mb-5">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-lg shadow-teal-500/20 group-hover:scale-105 transition-transform duration-300">
+                        <Icon size={26} className="text-white" />
+                      </div>
+                      <span className="px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-500/15 text-teal-700 dark:text-teal-300 border border-teal-200/50 dark:border-teal-500/20 text-xs font-bold tracking-wide">
+                        {edu.badge}
+                      </span>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="px-2.5 py-0.5 rounded-full bg-teal-100 dark:bg-teal-500/15 text-teal-700 dark:text-teal-300 text-xs font-bold">
-                          {edu.badge}
-                        </span>
-                        <span className="text-xs text-navy-500 dark:text-navy-400">
-                          {edu.period}
-                        </span>
-                      </div>
-                      <h3 className="font-display text-base md:text-lg font-bold text-navy-900 dark:text-white leading-tight">
-                        {edu.degree}
-                      </h3>
-                      <p className="mt-1 text-sm font-semibold text-teal-600 dark:text-teal-400">
-                        {edu.institution}
-                      </p>
-                      {isActive && (
-                        <p className="mt-3 text-sm text-navy-600 dark:text-navy-300 leading-relaxed animate-fade-in">
-                          {edu.description}
-                        </p>
-                      )}
-                      <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-navy-700 dark:text-navy-200">
-                        <CheckCircle2 size={14} className="text-teal-500" />
-                        {edu.grade}
-                      </div>
+
+                    <div className="flex items-center gap-2 mb-2 text-xs font-medium text-navy-500 dark:text-navy-400">
+                      <span>{edu.period}</span>
+                    </div>
+
+                    <h3 className="font-display text-lg sm:text-xl font-bold text-navy-900 dark:text-white leading-tight">
+                      {edu.degree}
+                    </h3>
+                    <p className="mt-1.5 text-sm font-semibold text-teal-600 dark:text-teal-400">
+                      {edu.institution}
+                    </p>
+
+                    <p className="mt-4 text-sm text-navy-600 dark:text-navy-300 leading-relaxed">
+                      {edu.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-5 border-t border-navy-100 dark:border-navy-700/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-navy-700 dark:text-navy-200">
+                      <CheckCircle2 size={16} className="text-teal-500 shrink-0" />
+                      <span>{edu.grade}</span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => openPreview(edu.degree, edu.institution, edu.documentUrl)}
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-teal-50 dark:bg-teal-500/15 text-teal-700 dark:text-teal-300 hover:bg-teal-100 dark:hover:bg-teal-500/25 text-xs font-bold transition-all hover:scale-105 shadow-sm"
+                      >
+                        <Eye size={14} />
+                        <span>Preview Degree</span>
+                      </button>
+
+                      <a
+                        href={edu.documentUrl}
+                        download
+                        className="p-2 rounded-xl text-navy-400 hover:text-navy-700 dark:hover:text-white hover:bg-navy-100 dark:hover:bg-navy-700/50 transition-colors"
+                        title="Download file"
+                      >
+                        <Download size={16} />
+                      </a>
                     </div>
                   </div>
-                </button>
+                </div>
               </ScrollReveal>
             );
           })}
         </div>
-
-        {/* Dropdown Selector at Bottom */}
-        <ScrollReveal delay={200}>
-          <div className="max-w-md mx-auto p-6 rounded-2xl bg-white dark:bg-navy-900 border border-navy-200 dark:border-navy-800 text-center shadow-lg">
-            <div className="flex items-center justify-center gap-2 mb-3 text-teal-600 dark:text-teal-400 font-bold text-sm">
-              <FileText size={18} />
-              <span>Select & View Official Degrees</span>
-            </div>
-
-            <div className="relative">
-              <select
-                value={selectedDegree}
-                onChange={(e) => handleSelect(e.target.value)}
-                className="w-full appearance-none px-4 py-3 pr-10 rounded-xl bg-navy-50 dark:bg-navy-950 border border-navy-200 dark:border-navy-700 text-navy-900 dark:text-white text-sm font-medium focus:border-teal-500 outline-none cursor-pointer shadow-sm transition-all"
-              >
-                <option value="">-- Choose Degree to View --</option>
-                {education.map((item) => (
-                  <option key={item.degree} value={item.documentUrl}>
-                    {item.badge}: {item.degree} ({item.institution})
-                  </option>
-                ))}
-              </select>
-              <ChevronDown size={18} className="absolute right-3.5 top-3.5 text-navy-400 pointer-events-none" />
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
+
+      <DocumentModal
+        isOpen={modalState.isOpen}
+        onClose={closePreview}
+        title={modalState.title}
+        subtitle={modalState.subtitle}
+        documentUrl={modalState.url}
+      />
     </section>
   );
 }
