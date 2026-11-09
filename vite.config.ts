@@ -4,13 +4,16 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // Use '/bahrPortfolio/' when building via GitHub Actions for GitHub Pages;
+  // Default to '/' on Vercel and local development.
+  base: process.env.GITHUB_ACTIONS ? '/bahrPortfolio/' : '/',
   plugins: [react()],
-  base: '/bahrPortfolio/', // Mandatory for GitHub Pages
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
+  optimizeDeps: {
+    exclude: ['lucide-react'],
+  },
 });
-
-
